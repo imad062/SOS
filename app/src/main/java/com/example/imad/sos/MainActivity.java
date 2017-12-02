@@ -1,16 +1,20 @@
 package com.example.imad.sos;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
 
     Button addContacts, showContacts, sos;
 
-    DataBaseHelper dataBaseHelper;
+    public DataBaseHelper dataBaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstance)
@@ -24,16 +28,21 @@ public class MainActivity extends AppCompatActivity{
         sos = (Button) findViewById(R.id.sos_activity_main);
 
         dataBaseHelper = new DataBaseHelper(this);
-        addContacts.setOnClickListener(
-                new View.OnClickListener()
-                {
-
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                }
-        );
 
     }
+
+    public void addContacts(View view)
+    {
+        Intent intent = new Intent(this, AddContacts.class);
+        startActivity(intent);
+    }
+
+    public void showContacts(View view)
+    {
+        Intent intent = new Intent(this, ShowContacts.class);
+        startActivity(intent);
+    }
+
+
+
 }

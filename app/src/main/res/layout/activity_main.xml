@@ -9,12 +9,16 @@
         android:background="@drawable/reactangular_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="add contacts"
+        android:text="Add Contacts"
         android:tooltipText="Add contacts to SOS List"
         android:textColor="@android:color/white"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:id="@+id/add_contacts_activity_main" />
+        android:textAllCaps="false"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/add_contacts_activity_main"
+        android:onClick="addContacts" />
 
     <Button
         android:background="@drawable/reactangular_button"
@@ -23,12 +27,16 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:text="show SOS contacts"
+        android:text="Show SOS Contacts"
         android:tooltipText="Show contacts of SOS List"
         android:textColor="@android:color/white"
+        android:textAllCaps="false"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:id="@+id/show_contacts_activity" />
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="5dp"
+        android:id="@+id/show_contacts_activity"
+        android:onClick="showContacts" />
 
     <Button
         android:background="@drawable/round_button"

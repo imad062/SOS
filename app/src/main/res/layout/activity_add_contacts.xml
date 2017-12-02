@@ -1,0 +1,40 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:background="@android:color/black"
+    >
+
+    <EditText
+        android:background="@drawable/reactangular_button"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="Enter Name"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/name_activity_addcontacts" />
+
+    <EditText
+        android:background="@drawable/reactangular_button"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="Enter phone number"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/phone_activity_addcontacts" />
+
+    <Button
+        android:background="@drawable/reactangular_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center"
+        android:id="@+id/save_activity_addcontacts" />
+
+</LinearLayout>
