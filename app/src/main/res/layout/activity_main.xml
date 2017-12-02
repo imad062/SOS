@@ -14,7 +14,7 @@
         android:textColor="@android:color/white"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:id="@+id/add_contact_activity_main" />
+        android:id="@+id/add_contacts_activity_main" />
 
     <Button
         android:background="@drawable/reactangular_button"
@@ -28,7 +28,7 @@
         android:textColor="@android:color/white"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:id="@+id/show_contact_activity_main" />
+        android:id="@+id/show_contacts_activity" />
 
     <Button
         android:background="@drawable/round_button"
