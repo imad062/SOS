@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity{
 
                         Toast.makeText(MainActivity.this, locationString, Toast.LENGTH_LONG).show();
 
-                        //////
                         int sentCount = 0;
                         Cursor data = dataBaseHelper.getPhoneNumbers();
 
@@ -88,13 +87,10 @@ public class MainActivity extends AppCompatActivity{
                                 smsSender.sendSms(phoneNum,message);
                                 sentCount++;
                             }
-                            //Toast.makeText(MainActivity.this, data.getString(0),Toast.LENGTH_LONG).show();
-                            //Toast.makeText(MainActivity.this, isPhoneNum(data.getString(0))+"", Toast.LENGTH_LONG).show();
 
                         }
                         Toast.makeText(MainActivity.this, "SOS sent to " + sentCount + " contacts ", Toast.LENGTH_LONG).show();
 
-                        //////
 
                     }
                 }
@@ -145,7 +141,6 @@ public class MainActivity extends AppCompatActivity{
                             try{
                                 String location = response.getJSONArray("results").getJSONObject(0).getString("formatted_address");
                                 createMessage(location);
-                                //Toast.makeText(MainActivity.this, locationString, Toast.LENGTH_LONG).show();
                             }
                             catch (JSONException e) {
                                 e.printStackTrace();
