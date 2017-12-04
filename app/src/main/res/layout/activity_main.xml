@@ -47,6 +47,22 @@
         android:textSize="30dp"
         android:textColor="@android:color/white"
         android:layout_gravity="center"
-        android:id="@+id/sos_activity_main" />
+        android:id="@+id/sos_activity_main"
+        android:onClick="sosClick"/>
+
+    <Button
+        android:background="@drawable/reactangular_button"
+        android:id="@+id/help_activity_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Help"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:textAllCaps="false"
+        android:onClick="helpClicked"
+        />
 
 </RelativeLayout>

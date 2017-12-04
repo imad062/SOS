@@ -18,6 +18,7 @@ public class AddContacts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contacts);
+        getSupportActionBar().hide();
 
         txtName = (EditText) findViewById(R.id.name_activity_addcontacts);
         txtPhone = (EditText) findViewById(R.id.phone_activity_addcontacts);

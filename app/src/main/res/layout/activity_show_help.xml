@@ -1,0 +1,26 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical"
+    >
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="98dp"
+        android:text="Click the Add Contacts Button to Add contacts to your SOS contacts list. Your SOS messages will be sent to these contact numbers. Please grant this application permission to send sms and to use location services. This application needs these services to work properly. "
+        android:textColor="@android:color/white"/>
+
+    <Button
+        android:background="@drawable/reactangular_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Contacts"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:onClick="addContactsFromHelp"
+        />
+</LinearLayout>

@@ -192,4 +192,9 @@ public class MainActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
+    public void helpClicked(View view)
+    {
+        Intent intent = new Intent(this, ShowHelp.class);
+        startActivity(intent);
+    }
 }

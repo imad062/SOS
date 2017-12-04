@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">SOS</string>
     <string name="title_activity_contacts_add">contacts_add</string>
+    <string name="title_activity_show_help">ShowHelp</string>
 </resources>
