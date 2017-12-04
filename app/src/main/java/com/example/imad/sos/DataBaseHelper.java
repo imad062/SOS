@@ -53,4 +53,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM " + tableName, null);
         return data;
     }
+
+    public Cursor getPhoneNumbers()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery("SELECT "+phoneColum+" FROM "+tableName,null);
+        return data;
+    }
 }

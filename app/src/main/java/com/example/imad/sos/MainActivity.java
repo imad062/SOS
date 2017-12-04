@@ -5,13 +5,17 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.provider.Telephony;
+import android.support.annotation.BoolRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuAdapter;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,8 +25,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
@@ -36,9 +40,13 @@ public class MainActivity extends AppCompatActivity{
 
     String geoLocationApiKey = "AIzaSyCHYtHvlr1VVEy96yw0GmudX6-sANMT9tQ";
 
-    String locationString;
+    String locationString = "";
 
     String longlat;
+
+    String message = "My life is in danger. My Location: ";
+
+    Boolean messageCreated = false;
 
     RequestQueue requestQueue;
 
@@ -67,6 +75,27 @@ public class MainActivity extends AppCompatActivity{
 
                         Toast.makeText(MainActivity.this, locationString, Toast.LENGTH_LONG).show();
 
+                        //////
+                        int sentCount = 0;
+                        Cursor data = dataBaseHelper.getPhoneNumbers();
+
+                        while(data.moveToNext())
+                        {
+                            if( isPhoneNum( data.getString(0) ) )
+                            {
+                                String phoneNum = data.getString(0);
+                                SmsSender smsSender = new SmsSender();
+                                smsSender.sendSms(phoneNum,message);
+                                sentCount++;
+                            }
+                            //Toast.makeText(MainActivity.this, data.getString(0),Toast.LENGTH_LONG).show();
+                            //Toast.makeText(MainActivity.this, isPhoneNum(data.getString(0))+"", Toast.LENGTH_LONG).show();
+
+                        }
+                        Toast.makeText(MainActivity.this, "SOS sent to " + sentCount + " contacts ", Toast.LENGTH_LONG).show();
+
+                        //////
+
                     }
                 }
         );
@@ -75,6 +104,13 @@ public class MainActivity extends AppCompatActivity{
 
     private class asyncAddressGetter extends AsyncTask<String,Void,String>
     {
+        public Void createMessage(String location)
+        {
+            message = message + location + " . Please Help me.";
+            messageCreated = true;
+            locationString = location;
+            return null;
+        }
 
         public String getLocation(Context context) {
             int status = context.getPackageManager().checkPermission(Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -107,7 +143,8 @@ public class MainActivity extends AppCompatActivity{
                         @Override
                         public void onResponse(JSONObject response) {
                             try{
-                                locationString = response.getJSONArray("results").getJSONObject(0).getString("formatted_address");
+                                String location = response.getJSONArray("results").getJSONObject(0).getString("formatted_address");
+                                createMessage(location);
                                 //Toast.makeText(MainActivity.this, locationString, Toast.LENGTH_LONG).show();
                             }
                             catch (JSONException e) {
@@ -124,7 +161,27 @@ public class MainActivity extends AppCompatActivity{
                         }
                     });
             requestQueue.add(jsObjRequest);
+
             return null;
+        }
+    }
+
+    public boolean isPhoneNum(String phoneNum)
+    {
+        if(phoneNum.length()!=11)
+        {
+            return false;
+        }
+        else
+        {
+            for(int i = 0; i < 11; i++)
+            {
+                if(phoneNum.charAt(i) < '0' || phoneNum.charAt(i) > '9')
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 
