@@ -7,9 +7,11 @@
     tools:context="com.example.imad.sos.ShowContacts">
 
     <ListView
-        android:layout_width="368dp"
-        android:layout_height="495dp"
+        android:background="@drawable/reactangular_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
-        android:id="@+id/listview_activity_show_contacts"/>
+        android:id="@+id/listview_activity_show_contacts"
+        />
 </android.support.constraint.ConstraintLayout>

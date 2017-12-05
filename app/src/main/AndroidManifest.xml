@@ -24,7 +24,8 @@
         </activity>
         <activity android:name=".AddContacts" />
         <activity android:name=".ShowContacts" />
-        <activity android:name=".ShowHelp"></activity>
+        <activity android:name=".ShowHelp" />
+        <activity android:name=".UpdateAndDeleteContacts"></activity>
     </application>
 
 </manifest>
