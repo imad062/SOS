@@ -40,6 +40,8 @@ public class UpdateAndDeleteContacts extends AppCompatActivity {
             {
                 txtName.setText(data.getString(1));
                 txtPhone.setText(data.getString(2));
+
+                //Toast.makeText(UpdateAndDeleteContacts.this, positionOfItem+"", Toast.LENGTH_LONG).show();
             }
         }
 

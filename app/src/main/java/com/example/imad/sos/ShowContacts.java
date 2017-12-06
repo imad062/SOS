@@ -21,13 +21,14 @@ import java.util.ArrayList;
 public class ShowContacts extends AppCompatActivity {
 
     public DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
-    public ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getSupportActionBar().hide();
         setContentView(R.layout.activity_show_contacts);
+
+        final ListView listView;
 
         listView = (ListView) findViewById(R.id.listview_activity_show_contacts);
         listView.setClickable(true);
@@ -47,11 +48,12 @@ public class ShowContacts extends AppCompatActivity {
                 arrayList.add("Name : " + data.getString(1) + " Phone: " + data.getString(2));
             }
 
-            ListAdapter listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList)
+            final ListAdapter listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList)
             {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent)
                 {
+
                     View view =super.getView(position, convertView, parent);
 
                     TextView textView=(TextView) view.findViewById(android.R.id.text1);
